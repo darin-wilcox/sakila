@@ -1,0 +1,26 @@
+spring:
+  main:
+    banner-mode: 'off'
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+sakila:
+  datasource:
+    jdbc-url: jdbc:mysql://${SAKILA_HOST}/sakila?useSSL=false
+    username: ${SAKILA_USERNAME}
+    password: ${SAKILA_PASSWORD}
+    driver-class-name: com.mysql.jdbc.Driver
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.zoikks.db.sakila: debug
+    #    org.hibernate.type.descriptor.sql: trace
+    com.zaxxer.hikari: error
+    org.hibernate: error
+    org.springframework: error
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
